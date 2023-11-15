@@ -74,4 +74,26 @@ fun addAccount(email:String, name:String, level:String, password:String){
     db.insert(TABLE_ACCOUNT,null,values)
     db.close()
 }
+fun checkData(email:String):String{
+    val colums = arrayOf(COLUMN_NAME)
+    val db = this.readableDatabase
+    val selection = "$COLUMN_EMAIL = ?"
+    val selectionArgs = arrayOf(email)
+    var name:String = ""
+
+    val cursor = db.query(TABLE_ACCOUNT,
+        colums,
+        selection,
+        selectionArgs,
+        null,
+        null,
+        null)
+
+    if(cursor.moveToFirst()){
+        name = cursor.getString(cursor.getColumnIndex(COLUMN_NAME))
+    }
+    cursor.close()
+    db.close()
+    return name
+}
 }
