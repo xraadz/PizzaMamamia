@@ -1,5 +1,6 @@
 package com.example.pizzaapp
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
@@ -60,5 +61,17 @@ fun checkLogin(email:String, password:String):Boolean{
         return true
     else
         return false
+}
+fun addAccount(email:String, name:String, level:String, password:String){
+    val db = this.readableDatabase
+
+    val values = ContentValues()
+    values.put(COLUMN_EMAIL, email)
+    values.put(COLUMN_NAME, name)
+    values.put(COLUMN_LEVEL, level)
+    values.put(COLUMN_PASSWORD, password)
+
+    db.insert(TABLE_ACCOUNT,null,values)
+    db.close()
 }
 }
