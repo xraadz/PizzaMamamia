@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
             val data:String = databaseHelper.checkData("stevi.ema@amikom.ac.id")
             Toast.makeText(this@LoginActivity,"Result : " + data,
             Toast.LENGTH_SHORT).show()
-            if(data == null){
+            if(data == ""){ //data => null
                 //insert data
                 databaseHelper.addAccount("stevi.ema@amikom.ac.id",
                         "Stevi Ema W", "Cashier", "1234")
