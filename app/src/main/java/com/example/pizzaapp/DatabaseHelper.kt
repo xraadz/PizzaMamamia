@@ -106,4 +106,12 @@ fun checkData(email:String):String{
     db.close()
     return name
 }
+
+    private val TABLE_MENU = "menu"
+    //column menu table
+    private val COLUMN_ID_MENU = "idMenu"
+    private val COLUMN_NAMA_MENU = "menuName"
+    private val COLUMN_PRICE_MENU = "price"
+    private val COLUMN_IMAGE = "photo"
 }
+
